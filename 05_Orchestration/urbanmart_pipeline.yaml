@@ -1,0 +1,30 @@
+resources:
+  jobs:
+    urbanmart_pipeline:
+      name: urbanmart_pipeline
+      tasks:
+        - task_key: Bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/george.panag.97@gmail.com/Bronze
+            source: WORKSPACE
+        - task_key: Silver
+          depends_on:
+            - task_key: Bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/george.panag.97@gmail.com/Silver
+            source: WORKSPACE
+        - task_key: Gold
+          depends_on:
+            - task_key: Silver
+          notebook_task:
+            notebook_path: /Workspace/Users/george.panag.97@gmail.com/Gold
+            source: WORKSPACE
+        - task_key: Validation
+          depends_on:
+            - task_key: Gold
+          notebook_task:
+            notebook_path: /Workspace/Users/george.panag.97@gmail.com/Validation
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

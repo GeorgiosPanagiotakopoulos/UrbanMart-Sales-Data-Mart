@@ -1,0 +1,5 @@
+day_type,channel,revenue,orders,avg_order_value,active_days,revenue_per_day,margin_pct
+Weekday,Online,529490.05,413,1282.06,287,1844.91,28.7
+Weekday,Physical,5999633.61,4725,1269.76,522,11493.55,29.5
+Weekend,Online,216087.80,172,1256.32,121,1785.85,30.4
+Weekend,Physical,2393143.35,1931,1239.33,208,11505.50,29.3

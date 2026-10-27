@@ -1,0 +1,92 @@
+id,source_table,column_name,issue_description,row_affected,handling_rule,profiled_at
+140,customers,birth_date,Invalid value: expected DATE (yyyy-MM-dd) type,0,DEFAULT: set to NULL (an order date maps to unknown date -1),2026-10-26T16:17:08.656Z
+141,customers,signup_date,Invalid value: expected DATE (yyyy-MM-dd) type,0,DEFAULT: set to NULL (an order date maps to unknown date -1),2026-10-26T16:17:08.656Z
+142,stores,open_date,Invalid value: expected DATE (yyyy-MM-dd) type,0,DEFAULT: set to NULL (an order date maps to unknown date -1),2026-10-26T16:17:08.656Z
+143,stores,size_sqm,Invalid value: expected INT type,0,DEFAULT: set to NULL (an order date maps to unknown date -1),2026-10-26T16:17:08.656Z
+144,orders,order_ts,Invalid value: expected TIMESTAMP (yyyy-MM-dd HH:mm:ss or dd/MM/yyyy HH:mm) type,0,DEFAULT: set to NULL (an order date maps to unknown date -1),2026-10-26T16:17:08.656Z
+145,order_items,discount_pct,Invalid value: expected DOUBLE type,0,REJECT: invalid discount value,2026-10-26T16:17:08.656Z
+151,customers,customer_id,Rows in a customer_id group with conflicting data,0,REJECT: all rows of the key rejected as CONFLICT_KEY,2026-10-26T16:17:17.774Z
+152,products,product_id,Rows in a product_id group with conflicting data,0,REJECT: all rows of the key rejected as CONFLICT_KEY,2026-10-26T16:17:17.774Z
+153,stores,store_id,Rows in a store_id group with conflicting data,0,REJECT: all rows of the key rejected as CONFLICT_KEY,2026-10-26T16:17:17.774Z
+154,orders,order_id,Rows in an order_id group with conflicting data,0,REVIEW: resolve conflicts before Silver,2026-10-26T16:17:17.774Z
+155,order_items,order_line_id,Rows in an order_line_id group with conflicting data,0,REVIEW: resolve conflicts before Silver,2026-10-26T16:17:17.774Z
+157,customers,email,Email does not match the expected basic email format,0,DEFAULT: set to NULL,2026-10-26T16:17:25.374Z
+158,customers,signup_date,Signup date is before birth date,0,"FLAG: kept as received, business review",2026-10-26T16:17:25.374Z
+159,customer_changes,customer_id,Customer change references a nonexistent customer,0,REJECT: orphan customer change (ORPHAN_FK),2026-10-26T16:17:25.374Z
+162,products,list_price,List price is lower than unit cost,0,"FLAG: kept as received, business review",2026-10-26T16:17:25.374Z
+164,stores,open_date,Store opening date is in the future,0,DEFAULT: set to NULL,2026-10-26T16:17:25.374Z
+166,orders,order_ts,Order timestamp is in the future,0,"DEFAULT: set to NULL, mapped to unknown date (-1)",2026-10-26T16:17:25.374Z
+168,orders,order_ts,Order timestamp is earlier than the store opening date,0,"FLAG: kept as received, business review",2026-10-26T16:17:25.374Z
+169,orders,order_ts,Order placed before customer signup date,189,"FLAG: kept as received, business review",2026-10-26T16:17:25.374Z
+181,order_items,discount_pct,"Discount percentage above 1 and up to 100 (possible percent scale, e.g. 10 for 10%)",0,STANDARDISE: divide by 100,2026-10-26T16:17:25.374Z
+92,customers,ALL_COLUMNS,Exact duplicate customer records,8,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+93,customer_changes,ALL_COLUMNS,Exact duplicate customer change records,0,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+94,products,ALL_COLUMNS,Exact duplicate product records,0,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+95,stores,ALL_COLUMNS,Exact duplicate store records,0,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+96,orders,ALL_COLUMNS,Exact duplicate order records,0,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+97,order_items,ALL_COLUMNS,Exact duplicate order item records,0,DEDUPLICATE: remove exact duplicates before Silver,2026-10-26T16:16:45.260Z
+98,customers,first_name,Missing or blank values found in column first_name,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+99,customers,last_name,Missing or blank values found in column last_name,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+101,customers,gender,Missing or blank values found in column gender,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+103,customers,city,Missing or blank values found in column city,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+104,customers,region,Missing or blank values found in column region,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+105,customers,segment,Missing or blank values found in column segment,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+107,customer_changes,new_city,Missing or blank values found in column new_city,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+108,customer_changes,new_region,Missing or blank values found in column new_region,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+109,customer_changes,new_segment,Missing or blank values found in column new_segment,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+110,products,subcategory,Missing or blank values found in column subcategory,1,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+111,products,brand,Missing or blank values found in column brand,1,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+112,products,is_active,Missing or blank values found in column is_active,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+113,stores,store_name,Missing or blank values found in column store_name,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+114,stores,store_type,Missing or blank values found in column store_type,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+115,stores,city,Missing or blank values found in column city,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+116,stores,region,Missing or blank values found in column region,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+119,orders,order_ts,Missing or blank values found in column order_ts,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+120,orders,customer_id,Missing or blank values found in column customer_id,312,DEFAULT: map to unknown member (-1),2026-10-26T16:16:52.592Z
+121,orders,store_id,Missing or blank values found in column store_id,0,DEFAULT: map to unknown member (-1),2026-10-26T16:16:52.592Z
+122,orders,payment_method,Missing or blank values found in column payment_method,0,DEFAULT: set to Unknown,2026-10-26T16:16:52.592Z
+123,order_items,discount_pct,Missing or blank values found in column discount_pct,0,DEFAULT: treat missing discount as 0,2026-10-26T16:16:52.592Z
+124,customers,customer_id,Missing or blank values found in column customer_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+125,customer_changes,customer_id,Missing or blank values found in column customer_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+126,customer_changes,effective_date,Missing or blank values found in column effective_date,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+127,products,product_id,Missing or blank values found in column product_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+128,products,product_name,Missing or blank values found in column product_name,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+129,products,category,Missing or blank values found in column category,1,REJECT: missing required value,2026-10-26T16:17:01.407Z
+130,products,unit_cost,Missing or blank values found in column unit_cost,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+131,products,list_price,Missing or blank values found in column list_price,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+132,stores,store_id,Missing or blank values found in column store_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+133,orders,order_id,Missing or blank values found in column order_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+134,orders,order_status,Missing or blank values found in column order_status,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+135,order_items,order_line_id,Missing or blank values found in column order_line_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+136,order_items,order_id,Missing or blank values found in column order_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+137,order_items,product_id,Missing or blank values found in column product_id,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+138,order_items,quantity,Missing or blank values found in column quantity,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+139,order_items,unit_price,Missing or blank values found in column unit_price,0,REJECT: missing required value,2026-10-26T16:17:01.407Z
+146,customer_changes,effective_date,Invalid value: expected DATE (yyyy-MM-dd) type,0,REJECT: invalid data type value,2026-10-26T16:17:12.960Z
+147,products,unit_cost,"Invalid value: expected DECIMAL(12,2) type",0,REJECT: invalid data type value,2026-10-26T16:17:12.960Z
+148,products,list_price,"Invalid value: expected DECIMAL(12,2) type",0,REJECT: invalid data type value,2026-10-26T16:17:12.960Z
+149,order_items,quantity,Invalid value: expected INT type,0,REJECT: invalid data type value,2026-10-26T16:17:12.960Z
+150,order_items,unit_price,"Invalid value: expected DECIMAL(12,2) type",0,REJECT: invalid data type value,2026-10-26T16:17:12.960Z
+156,customers,birth_date,Birth date is in the future,0,REJECT: invalid future birth date,2026-10-26T16:17:25.374Z
+160,products,unit_cost,Unit cost is negative,0,REJECT: negative cost,2026-10-26T16:17:25.374Z
+161,products,list_price,List price is negative,0,REJECT: negative price,2026-10-26T16:17:25.374Z
+167,orders,order_ts,Order timestamp in dd/MM/yyyy HH:mm format instead of ISO,76,STANDARDISE: parse dd/MM/yyyy HH:mm with try_to_timestamp,2026-10-26T16:17:25.374Z
+170,orders,customer_id,Order references a nonexistent customer,0,DEFAULT: map to unknown member (-1),2026-10-26T16:17:25.374Z
+171,orders,store_id,Order references a nonexistent store,0,DEFAULT: map to unknown member (-1),2026-10-26T16:17:25.374Z
+172,orders,payment_method,Payment method differs only by case or whitespace,0,STANDARDISE: trim and initcap,2026-10-26T16:17:25.374Z
+174,orders,order_status,Order status differs only by case or whitespace,0,STANDARDISE: trim and initcap,2026-10-26T16:17:25.374Z
+175,orders,order_status,Order status not in permitted list,0,REJECT: unknown order status,2026-10-26T16:17:25.374Z
+176,order_items,order_id,Order item references a nonexistent order,1,REJECT: orphan order item (no order header),2026-10-26T16:17:25.374Z
+177,order_items,product_id,Order item references a nonexistent product,1,REJECT: unknown product (no cost or margin),2026-10-26T16:17:25.374Z
+178,order_items,quantity,Order item quantity is less than 1,113,REJECT: zero or negative quantity,2026-10-26T16:17:25.374Z
+179,order_items,unit_price,Order item unit price is negative,0,REJECT: negative unit price,2026-10-26T16:17:25.374Z
+180,order_items,discount_pct,Discount percentage is below 0,0,REJECT: negative discount,2026-10-26T16:17:25.374Z
+182,order_items,discount_pct,Discount percentage above 100,0,REJECT: discount out of range,2026-10-26T16:17:25.374Z
+100,customers,email,Missing or blank values found in column email,15,DEFAULT: set to NULL,2026-10-26T16:16:52.592Z
+102,customers,birth_date,Missing or blank values found in column birth_date,0,DEFAULT: set to NULL,2026-10-26T16:16:52.592Z
+106,customers,signup_date,Missing or blank values found in column signup_date,0,DEFAULT: set to NULL,2026-10-26T16:16:52.592Z
+117,stores,open_date,Missing or blank values found in column open_date,0,DEFAULT: set to NULL,2026-10-26T16:16:52.592Z
+118,stores,size_sqm,Missing or blank values found in column size_sqm,0,DEFAULT: set to NULL,2026-10-26T16:16:52.592Z
+163,products,is_active,Active flag must be Y or N,0,DEFAULT: set to NULL,2026-10-26T16:17:25.374Z
+165,stores,size_sqm,Store size is negative,0,DEFAULT: set to NULL,2026-10-26T16:17:25.374Z
+173,orders,payment_method,Payment method not in permitted list,0,DEFAULT: set to Unknown,2026-10-26T16:17:25.374Z

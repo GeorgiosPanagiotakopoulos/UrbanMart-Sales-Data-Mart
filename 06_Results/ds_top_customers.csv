@@ -1,0 +1,16 @@
+segment,customer_rank,customer_id,full_name,revenue,gross_margin,orders
+Loyalty Gold,1,C0065,Giorgos Pappas,37217.82,11459.82,24
+Loyalty Gold,2,C0345,Sofia Ioannou,33204.49,8988.41,17
+Loyalty Gold,3,C0073,Nikos Georgiou,31291.02,9705.86,25
+Loyalty Gold,4,C0225,Dimitris Ioannou,28942.73,8107.10,18
+Loyalty Gold,5,C0126,Maria Vasileiou,28246.13,8022.66,22
+Loyalty Silver,1,C0043,Dimitris Oikonomou,32752.52,9813.76,23
+Loyalty Silver,2,C0462,Nikos Vasileiou,29614.59,9007.21,22
+Loyalty Silver,3,C0411,Sofia Georgiou,28718.72,8432.86,19
+Loyalty Silver,4,C0104,Maria Ioannou,28651.28,9194.71,19
+Loyalty Silver,5,C0422,Nikos Georgiou,27970.37,8987.75,19
+Retail,1,C0288,Giorgos Papadopoulos,36810.63,10914.40,26
+Retail,2,C0286,Ioanna Christodoulou,31075.97,8704.02,18
+Retail,3,C0218,Katerina Nikolaou,30885.35,9531.34,23
+Retail,4,C0378,Giorgos Oikonomou,29566.23,9162.60,20
+Retail,5,C0145,Eleni Nikolaou,29251.63,8586.81,21
